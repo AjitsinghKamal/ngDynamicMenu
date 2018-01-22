@@ -1,0 +1,9 @@
+<ul class="menu_group" [ngClass]="{'menu_group--column': sub, 'menu_group--row': !sub, 'menu_group--deep': sub>1, 'menu_group--shallow paint--green': sub===1, 'paint--blue': sub===2, 'paint--red': sub===3}">
+  <li *ngFor="let topLink of layer" class="menu_group__item">
+    <span class="content" *ngIf="checkLink(topLink); else noFancy">{{key}}</span>
+    <app-navigation [layer]="topLink[key]" [sub]="childLevel" *ngIf="key" class="nav-host"></app-navigation>
+    <ng-template #noFancy>
+      <span>{{topLink}}</span>
+    </ng-template>
+  </li>
+</ul>
